@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SnipExpand Settings</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <main>
+    <h1>SnipExpand Settings</h1>
+
+    <section>
+      <h2>Trigger prefix</h2>
+      <p class="hint">The character or characters that mark the start of a snippet trigger. Choose something you rarely type at the start of words.</p>
+
+      <div class="preset-row">
+        <button type="button" class="preset" data-prefix="|">|</button>
+        <button type="button" class="preset" data-prefix=";">;</button>
+        <button type="button" class="preset" data-prefix=":">:</button>
+        <button type="button" class="preset" data-prefix="//">//</button>
+        <button type="button" class="preset" data-prefix="\\">\</button>
+      </div>
+
+      <label class="custom-row">
+        <span>Custom</span>
+        <input type="text" id="prefix-input" maxlength="3" placeholder="|">
+      </label>
+      <p class="hint" id="prefix-hint">1-3 punctuation characters. No letters, numbers, or spaces.</p>
+    </section>
+
+    <section>
+      <h2>Expansion mode</h2>
+      <p class="hint">When should triggers expand?</p>
+
+      <label class="radio-row">
+        <input type="radio" name="expandMode" value="auto">
+        <span>
+          <strong>Automatic</strong>
+          <span class="sub">Expand when you press space, Tab, or Enter after a trigger.</span>
+        </span>
+      </label>
+
+      <label class="radio-row">
+        <input type="radio" name="expandMode" value="tab">
+        <span>
+          <strong>Tab only</strong>
+          <span class="sub">Expand only when you press Tab. More deliberate.</span>
+        </span>
+      </label>
+    </section>
+
+    <section>
+      <h2>Strict mode</h2>
+      <label class="check-row">
+        <input type="checkbox" id="strict-mode">
+        <span>
+          <strong>Only expand at word boundaries</strong>
+          <span class="sub">Triggers fire only when the prefix is preceded by whitespace or starts the line. Recommended on. Prevents accidental expansion in code or URLs.</span>
+        </span>
+      </label>
+    </section>
+
+    <section>
+      <h2>Confirmations</h2>
+      <label class="check-row">
+        <input type="checkbox" id="skip-delete-confirm">
+        <span>
+          <strong>Skip delete confirmation</strong>
+          <span class="sub">When on, deleting a snippet from the popup happens immediately without asking. Off by default.</span>
+        </span>
+      </label>
+    </section>
+
+    <div id="status" class="status" hidden></div>
+  </main>
+  <script src="options.js"></script>
+</body>
+</html>

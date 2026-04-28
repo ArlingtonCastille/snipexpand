@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header>
+    <h1>SnipExpand</h1>
+    <button id="add-btn" type="button">+ New snippet</button>
+  </header>
+  <main>
+    <div id="status" class="status" hidden></div>
+    <ul id="snippet-list"></ul>
+    <p id="empty-state" class="empty" hidden>No snippets yet. Click "New snippet" to add one.</p>
+  </main>
+  <footer id="action-bar">
+    <button id="settings-btn" type="button">Settings</button>
+    <button id="export-btn" type="button">Export</button>
+    <button id="import-btn" type="button">Import</button>
+    <input type="file" id="import-file" accept=".json" hidden>
+  </footer>
+
+  <div id="editor-modal" class="modal" hidden>
+    <div class="modal-content">
+      <h2 id="editor-title">New snippet</h2>
+      <label>
+        <span>Trigger</span>
+        <input type="text" id="trigger-input" placeholder="email" autocomplete="off">
+      </label>
+      <p class="hint" id="trigger-hint"></p>
+      <label>
+        <span>Body</span>
+        <textarea id="body-input" rows="6" placeholder="Type your snippet text. Use {date}, {time}, {clipboard}, {cursor} as variables."></textarea>
+      </label>
+      <div class="modal-buttons">
+        <button id="cancel-btn" type="button">Cancel</button>
+        <button id="save-btn" class="primary" type="button">Save</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="confirm-modal" class="modal" hidden>
+    <div class="modal-content">
+      <h2 id="confirm-title">Confirm</h2>
+      <p id="confirm-message" class="confirm-message"></p>
+      <div class="modal-buttons">
+        <button id="confirm-cancel-btn" type="button">Cancel</button>
+        <button id="confirm-ok-btn" class="primary" type="button">OK</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
